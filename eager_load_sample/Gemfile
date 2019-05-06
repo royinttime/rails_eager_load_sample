@@ -26,6 +26,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'pagy', '~> 0.19.0'
 # Slim templates generator for Rails 3, 4 and 5
 gem 'slim-rails'
+# Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup.
+gem 'simple_form'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

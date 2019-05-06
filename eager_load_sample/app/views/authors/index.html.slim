@@ -1,1 +1,33 @@
-index.html.slim
+.panel.panel-default
+  .panel-body
+    = simple_form_for @form, url: authors_path, method: :get do |f|
+      .row
+        .col-md-3
+          = f.input :company, collection: @form.options_for_companies, include_blank: 'All Companies'
+        .col-md-2
+          .form-group
+            label.control-label &nbsp;
+            = f.submit 'Apply Filter', class: 'btn btn-primary btn-block'
+
+br
+
+.panel.panel-default
+
+  table style="width:30%"
+    tr
+      th Name
+      th Company
+      th Number of posts
+
+    - @records.each do |record|
+      tr
+        th = record.name
+        th = record.company&.name
+        th = record.posts.count
+
+br
+
+.panel-footer
+  nav.nav.row
+    .col-md-6
+      .navbar-text == pagy_info @pagy
