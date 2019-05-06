@@ -1,20 +1,15 @@
-.panel.panel-default
+table style="width:30%"
+  tr
+    th No.
+    th Name
+    th Number of posts
 
-  table style="width:30%"
+  - @records.each_with_index do |record, index|
     tr
-      th No.
-      th Name
-      th Number of posts
-
-    - @records.each_with_index do |record, index|
-      tr
-        th = index + 1
-        th = record.name
-        th = record.posts.count
+      th = index + 1
+      th = record.name
+      th = record.posts.count
 
 br
 
-.panel-footer
-  nav.nav.row
-    .col-md-6
-      .navbar-text == pagy_info @pagy
+== pagy_info @pagy
