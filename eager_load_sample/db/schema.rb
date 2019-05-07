@@ -16,14 +16,6 @@ ActiveRecord::Schema.define(version: 2019_05_04_083937) do
   enable_extension "plpgsql"
 
   create_table "authors", force: :cascade do |t|
-    t.bigint "company_id"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_authors_on_company_id"
-  end
-
-  create_table "companies", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -39,6 +31,5 @@ ActiveRecord::Schema.define(version: 2019_05_04_083937) do
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
-  add_foreign_key "authors", "companies"
   add_foreign_key "posts", "authors"
 end
